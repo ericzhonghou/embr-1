@@ -4,9 +4,11 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
  
 app.post("/message", function (request, response) {
-  console.log(request.body); 
-  response.send("<Response><Message>Hello</Message></Response>")
+  console.log(request.body.Body);
+  console.log(request.body.From);  
+  response.send("<Response><Message>" + request.body.Body + "</Message></Response>");
 });
+
  
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
