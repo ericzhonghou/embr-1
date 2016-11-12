@@ -1,20 +1,17 @@
-var express = require('express')
-  , logger = require('morgan')
-  , app = express()
-  , template = require('jade').compileFile(__dirname + '/source/templates/homepage.jade')
-
-app.use(logger('dev'))
-app.use(express.static(__dirname + '/static'))
-
-app.get('/', function (req, res, next) {
-  try {
-    var html = template({ title: 'Home' })
-    res.send(html)
-  } catch (e) {
-    next(e)
-  }
-})
-
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Listening on http://localhost:' + (process.env.PORT || 3000))
-})
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.urlencoded({extended: false}));
+ 
+app.post("/message", function (request, response) {
+  console.log(request.body); 
+  response.send("<Response><Message>Hello</Message></Response>")
+});
+ 
+app.get("/", function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
+ 
+var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
