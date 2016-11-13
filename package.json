@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "author": "Eric Hou",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
     "jade": "^1.11.0",
+    "jsonfile": "^2.4.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2",
     "stylus": "^0.54.5",
