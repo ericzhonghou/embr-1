@@ -1,20 +1,25 @@
 
-var color = d3.scaleLinear()
-    .domain([-1, 2])
-    .range(["hsl(6, 79%, 70%)", "hsl(10, 86%, 89%)"])
-    .interpolate(d3.interpolateHcl);
-
 var svg = d3.select("svg"),
     margin = 10,
     diameter = 540,
     g = svg.append("g").attr("transform", "translate(" + rect.width / 2+ "," + rect.height / 2 + ")");
 
-
-
+var color = d3.scaleLinear()
+    .domain([-1, 2])
+    .range(["hsl(6, 79%, 70%)", "hsl(10, 86%, 89%)"])
+    .interpolate(d3.interpolateHcl);
 
 var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
+
+
+update('./test.json');
+
+
+setInterval(function(){ update('./new.json'); }, 3000);
+
+
 
 function update(jaysean) {
 
@@ -117,9 +122,6 @@ d3.json(jaysean, function(error, root) {
 });
 }
 
-update('./test.json');
 
-
-setInterval(function(){ update('./new.json'); }, 3000);
 
 
