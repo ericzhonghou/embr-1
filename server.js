@@ -189,11 +189,11 @@ app.post("/message", function (request, response) {
   console.log(request.body.Body);
   console.log(request.body.From);
   var clusterJSON = getClassification(request.body.Body);
-  console.log(clusterJSON['top_class']);
+  console.log(clusterJSON);
   //var obj = JSON.parse(jsonStr);
 
   for(i = 0; i < obj['children'].length; i++) {
-  	if(obj['children'][i]['name'] == clusterJSON['top_class']) {
+  	if(obj['children'][i]['name'] == clusterJSON) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		//jsonStr = JSON.stringify(obj);
@@ -258,11 +258,13 @@ function getClassification(query){
 	  text: query,
 	  classifier_id: '004a12x110-nlc-3373' },
 	  function(err, response) {
-	    if (err)
+	    if (err) {
 	      console.log('error:', err);
-	    else
+	 	}
+	    else {
 	      console.log(JSON.stringify(response, null, 2));
-	  	  return response;
+	  	  return response.top_class;
+	  	}
 	});
 
 
