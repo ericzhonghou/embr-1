@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
  
@@ -23,7 +24,7 @@ var listener = app.listen(process.env.PORT, function () {
 
 
 function getClassification(query){
-	var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
+	
 
 	var natural_language_classifier = new NaturalLanguageClassifierV1({
 	  username: '78da41dc-3b5e-4e35-a514-0c7bb266d642',
