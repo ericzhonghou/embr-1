@@ -237,6 +237,14 @@ app.get("/scripts/graph.js", function (request, response) {
 app.get("/scripts/d3js.js", function (request, response) {
   response.sendFile(__dirname + '/scripts/d3js.js');
 });
+
+app.get("/data/test.json", function (request, response) {
+  response.sendFile(__dirname + '/data/test.json');
+});
+
+app.get("/data/new.json", function (request, response) {
+  response.sendFile(__dirname + '/data/new.json');
+});
  
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
