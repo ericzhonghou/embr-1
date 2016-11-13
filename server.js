@@ -20,7 +20,7 @@ app.post("/message", function (request, response) {
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		jsonStr = JSON.stringify(obj);
   		jsonfile.writeFileSync('./new.json', obj);
-  		up('./test.json');
+  		up('./new.json');
   	} 
   }
 
