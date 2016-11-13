@@ -1,9 +1,194 @@
 var express = require('express');
-var jsonstr = require('../data/test.json');
 var jsonfile = require('jsonfile');
 var bodyParser = require('body-parser');
 var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 var app = express();
+
+
+var obj = {
+	"name" : "stuff",
+	"children" : [
+		{
+			"name" : "Technology", 
+			"size" : 1, 
+			"children" : [
+				{
+					"name" : "Technology",
+					"size" : 1,
+					"children": [
+						{
+							"name" : "Technology",
+							"size" : 1,
+							"sms" : [
+
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Society" , 
+			"size" : 1, 
+			"children" : [
+				{
+					"name" : "Society" , 
+					"size" : 1, 
+					"children" : [
+						{
+							"name" : "Society" ,
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Development" , 
+			"size" : 1, 
+			"children" : [
+				{
+					"name" : "Development" , 
+					"size" : 1, 
+					"children" : [
+						{
+							"name" : "Development" ,
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}	
+			]
+		},
+		{
+			"name" : "Disasters", 
+			"size" : 1,
+			"children" : [
+				{
+					"name" : "Disasters", 
+					"size" : 1,
+					"children" : [
+						{
+							"name" : "Disasters", 
+							"size" : 1,
+							"sms" : [
+								
+							] 
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Environment", 
+			"size" : 1,
+			"children" : [
+				{
+					"name" : "Environment", 
+					"size" : 1,
+					"children" : [
+						{
+							"name" : "Environment", 
+							"size" : 1,
+							"sms" : [
+								
+							] 
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Education", 
+			"size": 1,
+			"children" : [
+				{
+					"name" : "Education", 
+					"size": 1,
+					"children" : [
+						{
+							"name" : "Education",
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Health", 
+			"size": 1,
+			"children" : [
+				{
+					"name" : "Health", 
+					"size": 1,
+					"children" : [
+						{
+							"name" : "Health", 
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Food", 
+			"size": 1,
+			"children" : [
+				{
+					"name" : "Food", 
+					"size": 1,
+					"children" : [
+						{
+							"name" : "Food",
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" : "Economy", 
+			"size": 1,
+			"children" : [
+				{
+					"name" : "Economy", 
+					"size": 1,
+					"children" : [
+						{
+							"name" : "Economy",
+							"size" : 1,
+							"sms" : [
+								
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+
+
+
+
+
+
+
 app.use(bodyParser.urlencoded({extended: false}));
  
 app.post("/message", function (request, response) {
@@ -11,7 +196,7 @@ app.post("/message", function (request, response) {
   console.log(request.body.From);
   var clusterJSON = getClassification(request.body.Body);
   console.log(clusterJSON.top_class);
-  var obj = JSON.parse(jsonStr);
+  //var obj = JSON.parse(jsonStr);
 
   for(i = 0; i < obj['children'].length; i++) {
   	if(obj['children'][i]['name'] == clusterJSON) {
