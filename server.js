@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
+var NaturalLanguageClassifierV1 = require('node-sdk/watson-developer-cloud/natural-language-classifier/v1');
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
  
