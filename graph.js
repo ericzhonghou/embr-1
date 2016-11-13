@@ -14,10 +14,14 @@ var pack = d3.pack()
     .padding(2);
 
 
-update('../data/test.json');
+update('test.json');
 
 
-setInterval(function(){ update('../data/test.json'); }, 10000);
+setInterval(function(){ 
+  d3.selectAll("circle,text").clear().remove();
+  update('new.json'); 
+
+}, 10000);
 
 
 
