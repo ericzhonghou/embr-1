@@ -262,7 +262,8 @@ function getClassification(query){
 	      console.log('error:', err);
 	    else
 	      console.log(JSON.stringify(response, null, 2));
+	  	  return response;
 	});
 
-	return response;
+
 }
