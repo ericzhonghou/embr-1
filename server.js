@@ -18,7 +18,7 @@ app.post("/message", function (request, response) {
   	if(obj['children'][i]['name'] == clusterJSON) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
-  		jsonStr = JSON.stringify(obj);
+  		//jsonStr = JSON.stringify(obj);
   		jsonfile.writeFileSync('./new.json', obj);
   	} 
   }
@@ -30,9 +30,9 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
  
-// var listener = app.listen(process.env.PORT, function () {
-//   console.log('Your app is listening on port ' + listener.address().port);
-// });
+var listener = app.listen(8000, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
 
 
 
