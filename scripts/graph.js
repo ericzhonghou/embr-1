@@ -3,8 +3,8 @@
 // var rect = svg1.getBoundingClientRect();
 // console.log(rect.height);
 
-var Dialog = require('modal-dialog');
-var dq = new Dialog(window.jQuery);
+// var Dialog = require('modal-dialog');
+// var dq = new Dialog(window.jQuery);
 
 
 // var modal = d3s.select('#myModal');
