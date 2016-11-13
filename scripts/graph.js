@@ -2,7 +2,7 @@
 var svg = d3.select("svg"),
     margin = 10,
     diameter = 540,
-    g = svg.append("g").attr("transform", "translate(" + rect.width / 2+ "," + rect.height / 2 + ")");
+    g = svg.append("g").attr("transform", "translate(" + diameter / 2+ "," + 2000 / 2 + ")");
 
 var color = d3.scaleLinear()
     .domain([-1, 2])
