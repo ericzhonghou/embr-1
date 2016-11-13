@@ -14,10 +14,10 @@ var pack = d3.pack()
     .padding(2);
 
 
-update('test.json');
+update('/data/test.json');
 
 
-setInterval(function(){ update('./new.json'); }, 3000);
+setInterval(function(){ update('/data/new.json'); }, 3000);
 
 
 

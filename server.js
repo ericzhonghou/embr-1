@@ -1,5 +1,5 @@
 var express = require('express');
-var jsonstr = require('test.json');
+var jsonstr = require('/data/test.json');
 var jsonfile = require('jsonfile');
 var bodyParser = require('body-parser');
 var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
@@ -18,7 +18,7 @@ app.post("/message", function (request, response) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		//jsonStr = JSON.stringify(obj);
-  		jsonfile.writeFileSync('new.json', obj);
+  		jsonfile.writeFileSync('/data/new.json', obj);
   	} 
   }
 
