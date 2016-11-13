@@ -5,8 +5,7 @@ app.use(bodyParser.urlencoded({extended: false}));
  
 app.post("/message", function (request, response) {
   console.log(request.body.Body);
-  console.log(request.body.From);  
-  document.getElementById("line").innerHTML=request.body.Body;
+  console.log(request.body.From);
   response.send("<Response><Message>" + request.body.Body + "</Message></Response>");
 });
 
