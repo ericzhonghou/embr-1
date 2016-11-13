@@ -1,10 +1,10 @@
 
-var svg1 = document.getElementById("dataGraph");
+var svg1 = $('#dataGraph');
 var rect = svg1.getBoundingClientRect();
 console.log(rect.height);
 
-var modal = document.getElementById('myModal');
-var span = document.getElementsByClassName("close")[0];
+var modal = $('#myModal');
+var span = $(".close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
@@ -50,9 +50,9 @@ d3.json(jaysean, function(error, root) {
           if(d.depth >= 2 && (focus.depth - d.depth >= -1)) {
             d3.event.stopPropagation();
             modal.style.display = "block";
-            document.getElementById("sms").innerHTML = "";
+            $('sms').innerHTML = "";
             for(i = 0; i < d.data.children[0].sms.length; i ++) {
-              document.getElementById("sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
+              $('sms').innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
             }
              
          } else if (focus !== d) {
