@@ -2,6 +2,7 @@ dvar express = require('express');
 var jsonstr = require('./test.json');
 var jsonfile = require('jsonfile')
 var bodyParser = require('body-parser');
+require('./graph.js')();
 var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -18,8 +19,11 @@ app.post("/message", function (request, response) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		jsonStr = JSON.stringify(obj);
-  		jsonfile.writeFileSync(./test.json, obj);
+  		jsonfile.writeFileSync('./new.json', obj);
+  		up('./test.json');
   	} 
+  }
+
 });
 
  

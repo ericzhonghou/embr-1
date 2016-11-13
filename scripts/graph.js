@@ -24,9 +24,9 @@ var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
 
-function update() {
+function update(jaysean) {
 
-d3.json("test.json", function(error, root) {
+d3.json(jaysean, function(error, root) {
   if (error) throw error;
 
   root = d3.hierarchy(root)
@@ -37,8 +37,6 @@ d3.json("test.json", function(error, root) {
       nodes = pack(root).descendants(),
       view;
 
-    g.selectAll("circle,text").remove();
-    d3.selectAll("circle,text").transition().duration(1000);
 
   var circle = g.selectAll("circle")
     .data(nodes)
@@ -49,7 +47,7 @@ d3.json("test.json", function(error, root) {
       .style("fill", function(d) { return d.children ? color(d.depth) : null; })
       .on("click", 
         function(d) { 
-          if(d.depth >=2) {
+          if(d.depth >= 2 && (focus.depth - d.depth >= -1)) {
             d3.event.stopPropagation();
             modal.style.display = "block";
             document.getElementById("sms").innerHTML = "";
@@ -72,7 +70,7 @@ d3.json("test.json", function(error, root) {
       .attr("class", "label")
       .style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
       .style("display", function(d) { return d.parent === root ? "inline" : "none"; })
-      .style("font-size", function(d) { return "40px";})
+      .style("font-size", function(d) { return "27px";})
       .text(function(d) { return d.data.name; });
 
   
@@ -115,8 +113,9 @@ d3.json("test.json", function(error, root) {
 });
 }
 
-update();
+update('./test.json');
 
-d3.interval(function() {
-  update();
-}, 30000);
+
+moduke.exports = function() {
+  this.up = function(a) { update(a) };
+}
