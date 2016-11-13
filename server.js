@@ -253,7 +253,7 @@ function getClassification(query){
 
 	natural_language_classifier.classify({
 	  text: query,
-	  classifier_id: '<classifier-id>' },
+	  classifier_id: '004a12x110-nlc-3373' },
 	  function(err, response) {
 	    if (err)
 	      console.log('error:', err);
