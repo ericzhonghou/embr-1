@@ -232,8 +232,8 @@ app.get("/scripts/d3js.js", function (request, response) {
   response.sendFile(__dirname + '/scripts/d3js.js');
 });
 
-app.get("/data/test.json", function (request, response) {
-  response.sendFile(__dirname + '/data/test.json');
+app.get("/test.json", function (request, response) {
+  response.sendFile(__dirname + '/test.json');
 });
 
 app.get("/data/new.json", function (request, response) {
