@@ -262,7 +262,7 @@ function getClassification(query){
 	      console.log('error:', err);
 	 	} else {
 	      //console.log(JSON.stringify(response, null, 2));
-	  	  return JSON.stringify(response, null, 2).top_class;
+	  	  return JSON.parse(response).top_class;
 	  	}
 	});
 
