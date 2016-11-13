@@ -1,13 +1,12 @@
 var D3Node = require('d3-node');
-var d3 = D3Node.d3;
+var d3s = D3Node.d3;
 var d3n = new D3Node();
-var options
-var svg1 = d3.select('#dataGraph');
+var svg1 = d3s.select('#dataGraph');
 var rect = svg1.getBoundingClientRect();
 console.log(rect.height);
 
-var modal = d3.select('#myModal');
-var span = d3.select(".close")[0];
+var modal = d3s.select('#myModal');
+var span = d3s.select(".close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
@@ -53,9 +52,9 @@ d3.json(jaysean, function(error, root) {
           if(d.depth >= 2 && (focus.depth - d.depth >= -1)) {
             d3.event.stopPropagation();
             modal.style.display = "block";
-            d3.select("#sms").innerHTML = "";
+            d3s.select("#sms").innerHTML = "";
             for(i = 0; i < d.data.children[0].sms.length; i ++) {
-              d3.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
+              d3s.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
             }
              
          } else if (focus !== d) {
