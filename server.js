@@ -189,11 +189,11 @@ app.post("/message", function (request, response) {
   console.log(request.body.Body);
   console.log(request.body.From);
   var clusterJSON = getClassification(request.body.Body);
-  console.log(clusterJSON.top_class);
+  console.log(clusterJSON['top_class']);
   //var obj = JSON.parse(jsonStr);
 
   for(i = 0; i < obj['children'].length; i++) {
-  	if(obj['children'][i]['name'] == clusterJSON) {
+  	if(obj['children'][i]['name'] == clusterJSON['top_class']) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		//jsonStr = JSON.stringify(obj);
