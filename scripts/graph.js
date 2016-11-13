@@ -17,7 +17,7 @@ var pack = d3.pack()
 update('../data/test.json');
 
 
-setInterval(function(){ update('../data/new.json'); }, 3000);
+setInterval(function(){ update('../data/test.json'); }, 10000);
 
 
 
