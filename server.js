@@ -7,8 +7,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.post("/message", function (request, response) {
   console.log(request.body.Body);
   console.log(request.body.From);
-  var cluster = getClassification(request.body.Body);
-  console.log(cluster);
+  var clusterJSON = getClassification(request.body.Body);
+  console.log(cluster.top_class);
 
 });
 
@@ -24,7 +24,6 @@ var listener = app.listen(process.env.PORT, function () {
 
 
 function getClassification(query){
-	
 
 	var natural_language_classifier = new NaturalLanguageClassifierV1({
 	  username: '78da41dc-3b5e-4e35-a514-0c7bb266d642',
