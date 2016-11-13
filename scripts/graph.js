@@ -56,18 +56,20 @@ d3.json(jaysean, function(error, root) {
             // modal.style.display = "block";
             // d3s.select("#sms").innerHTML = "";
 
-            dq.title = 'Problems in' + d.data.name;
-            dq.content = '';
-            dq.info = 'Texts accumulated through Twilio';
-            dq.addButton('X', function() {
-                dq.hide();
-            });
+            // dq.title = 'Problems in' + d.data.name;
+            // dq.content = '';
+            // dq.info = 'Texts accumulated through Twilio';
+            // dq.addButton('X', function() {
+            //     dq.hide();
+            // });
 
-
+            var alert = '';
             for(i = 0; i < d.data.children[0].sms.length; i ++) {
               //d3s.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
-              dq.content += d.data.children[0].sms[i].textmess + '\n';
+              alert += d.data.children[0].sms[i].textmess + '\n';
             }
+
+            alert(alert);
              
          } else if (focus !== d) {
             zoom(d);
