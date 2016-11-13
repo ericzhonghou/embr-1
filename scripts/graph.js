@@ -116,6 +116,8 @@ d3.json(jaysean, function(error, root) {
 update('./test.json');
 
 
+setInterval(function(){ update('./new.json'); }, 3000);
+
 module.exports = function() {
   this.up = function(a) { update(a) };
 }
