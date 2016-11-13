@@ -20,7 +20,6 @@ app.post("/message", function (request, response) {
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		jsonStr = JSON.stringify(obj);
   		jsonfile.writeFileSync('./new.json', obj);
-  		up('./new.json');
   	} 
   }
 
@@ -40,8 +39,8 @@ var listener = app.listen(process.env.PORT, function () {
 function getClassification(query){
 
 	var natural_language_classifier = new NaturalLanguageClassifierV1({
-	  username: '78da41dc-3b5e-4e35-a514-0c7bb266d642',
-	  password: '6utZEoLsdqDu'
+	  username: 'd70889aa-7fc1-423b-a364-368cfbe96fa0',
+	  password: 'nTrwUp2md43K'
 	});
 
 	natural_language_classifier.classify({
