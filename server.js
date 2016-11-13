@@ -263,4 +263,6 @@ function getClassification(query){
 	    else
 	      console.log(JSON.stringify(response, null, 2));
 	});
+
+	return response;
 }
