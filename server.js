@@ -260,10 +260,9 @@ function getClassification(query){
 	  function(err, response) {
 	    if (err) {
 	      console.log('error:', err);
-	 	}
-	    else {
+	 	} else {
 	      //console.log(JSON.stringify(response, null, 2));
-	  	  return response.top_class;
+	  	  return JSON.stringify(response, null, 2).top_class;
 	  	}
 	});
 
