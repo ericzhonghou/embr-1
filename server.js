@@ -183,12 +183,6 @@ var obj = {
 }
 
 
-
-
-
-
-
-
 app.use(bodyParser.urlencoded({extended: false}));
  
 app.post("/message", function (request, response) {
@@ -211,7 +205,7 @@ app.post("/message", function (request, response) {
 
  
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  response.sendFile(__dirname + '/index.html');
 });
 
 app.get("/stylesheets/style.css", function (request, response) {
@@ -230,8 +224,8 @@ app.get("/scripts/graph.js", function (request, response) {
   response.sendFile(__dirname + '/scripts/graph.js');
 });
 
-app.get("/scripts/graph.js", function (request, response) {
-  response.sendFile(__dirname + '/scripts/graph.js');
+app.get("/graph.js", function (request, response) {
+  response.sendFile(__dirname + '/graph.js');
 });
 
 app.get("/scripts/d3js.js", function (request, response) {

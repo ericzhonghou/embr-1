@@ -1,8 +1,8 @@
 
 var svg = d3.select("svg"),
     margin = 10,
-    diameter = 540,
-    g = svg.append("g").attr("transform", "translate(" + diameter / 2+ "," + 2000 / 2 + ")");
+    diameter = 650,
+    g = svg.append("g").attr("transform", "translate(" + 1000 + "," + diameter / 2 + ")");
 
 var color = d3.scaleLinear()
     .domain([-1, 2])
@@ -23,7 +23,7 @@ setInterval(function(){ update('../data/test.json'); }, 10000);
 
 function update(jaysean) {
 
-d3.json(jaysean, function(error, root) {
+d3.json('test.json', function(error, root) {
   if (error) throw error;
 
   root = d3.hierarchy(root)
@@ -56,13 +56,13 @@ d3.json(jaysean, function(error, root) {
             //     dq.hide();
             // });
 
-            var alert = '';
+            var alerts = '';
             for(i = 0; i < d.data.children[0].sms.length; i ++) {
               //d3s.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
-              alert += d.data.children[0].sms[i].textmess + '\n';
+              alerts += d.data.children[0].sms[i].textmess + '\n';
             }
 
-            alert(alert);
+            alert(alerts);
              
          } else if (focus !== d) {
             zoom(d);
