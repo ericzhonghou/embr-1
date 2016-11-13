@@ -1,4 +1,3 @@
-var d3 = require('d3');
 var express = require('express');
 var jsonstr = require('./test.json');
 var jsonfile = require('jsonfile');
