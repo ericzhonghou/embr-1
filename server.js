@@ -1,8 +1,8 @@
+var d3 = require('d3');
 var express = require('express');
 var jsonstr = require('./test.json');
 var jsonfile = require('jsonfile');
 var bodyParser = require('body-parser');
-require('./scripts/graph.js')();
 var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -30,9 +30,9 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
  
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+// var listener = app.listen(process.env.PORT, function () {
+//   console.log('Your app is listening on port ' + listener.address().port);
+// });
 
 
 
