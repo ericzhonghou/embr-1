@@ -8,7 +8,7 @@ app.post("/message", function (request, response) {
   console.log(request.body.Body);
   console.log(request.body.From);
   var clusterJSON = getClassification(request.body.Body);
-  console.log(cluster.top_class);
+  console.log(clusterJSON.top_class);
 
 });
 
