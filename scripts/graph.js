@@ -1,18 +1,4 @@
 
-// var svg1 = d3s.select('#dataGraph');
-// var rect = svg1.getBoundingClientRect();
-// console.log(rect.height);
-
-// var Dialog = require('modal-dialog');
-// var dq = new Dialog(window.jQuery);
-
-
-// var modal = d3s.select('#myModal');
-// var span = d3s.select(".close")[0];
-// span.onclick = function() {
-//     modal.style.display = "none";
-//}
-
 var svg = d3.select("svg"),
     margin = 10,
     diameter = 540,
@@ -28,7 +14,7 @@ var pack = d3.pack()
     .size([diameter - margin, diameter - margin])
     .padding(2);
 
-function update(jaysean) {
+// function update(jaysean) {
 
 d3.json(jaysean, function(error, root) {
   if (error) throw error;
@@ -127,12 +113,12 @@ d3.json(jaysean, function(error, root) {
 
 
 });
-}
+//}
 
-update('./test.json');
+//update('./test.json');
 
 
-setInterval(function(){ update('./new.json'); }, 3000);
+//setInterval(function(){ update('./new.json'); }, 3000);
 
 module.exports = function() {
   this.up = function(a) { update(a) };
