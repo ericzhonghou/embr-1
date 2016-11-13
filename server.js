@@ -1,5 +1,5 @@
 var express = require('express');
-var jsonstr = require(__dirname + '/data/test.json');
+var jsonstr = require('../data/test.json');
 var jsonfile = require('jsonfile');
 var bodyParser = require('body-parser');
 var NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
