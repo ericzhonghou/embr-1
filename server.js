@@ -197,7 +197,7 @@ app.post("/message", function (request, response) {
   		obj['children'][i]['children'][0]['children'][0]['sms'].push({"textmess": request.body.Body});
   		obj['children'][i]['children'][0]['children'][0]['size'] += 1;
   		//jsonStr = JSON.stringify(obj);
-  		jsonfile.writeFileSync(__dirname + '/data/test.json', obj);
+  		jsonfile.writeFileSync(__dirname + '/test.json', obj);
   	} 
   }
 

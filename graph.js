@@ -18,7 +18,7 @@ update('test.json');
 
 
 setInterval(function(){ 
-  d3.selectAll("circle,text").clear().remove();
+  d3.selectAll("circle,text").remove();
   update('new.json'); 
 
 }, 10000);
