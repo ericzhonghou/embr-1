@@ -1,19 +1,21 @@
-var D3Node = require('d3-node');
-var d3s = D3Node.d3;
-var d3n = new D3Node();
-var svg1 = d3s.select('#dataGraph');
-var rect = svg1.getBoundingClientRect();
-console.log(rect.height);
 
-var modal = d3s.select('#myModal');
-var span = d3s.select(".close")[0];
-span.onclick = function() {
-    modal.style.display = "none";
-}
+// var svg1 = d3s.select('#dataGraph');
+// var rect = svg1.getBoundingClientRect();
+// console.log(rect.height);
+
+var Dialog = require('modal-dialog');
+var dq = new Dialog(window.jQuery);
+
+
+// var modal = d3s.select('#myModal');
+// var span = d3s.select(".close")[0];
+// span.onclick = function() {
+//     modal.style.display = "none";
+//}
 
 var svg = d3.select("svg"),
     margin = 10,
-    diameter = rect.height,
+    diameter = 540,
     g = svg.append("g").attr("transform", "translate(" + rect.width / 2+ "," + rect.height / 2 + ")");
 
 
@@ -51,10 +53,20 @@ d3.json(jaysean, function(error, root) {
         function(d) { 
           if(d.depth >= 2 && (focus.depth - d.depth >= -1)) {
             d3.event.stopPropagation();
-            modal.style.display = "block";
-            d3s.select("#sms").innerHTML = "";
+            // modal.style.display = "block";
+            // d3s.select("#sms").innerHTML = "";
+
+            dq.title = 'Problems in' + d.data.name;
+            dq.content = '';
+            dq.info = 'Texts accumulated through Twilio';
+            dq.addButton('X', function() {
+                dq.hide();
+            });
+
+
             for(i = 0; i < d.data.children[0].sms.length; i ++) {
-              d3s.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
+              //d3s.select("#sms").innerHTML += d.data.children[0].sms[i].textmess + "<br/>";
+              dq.content += d.data.children[0].sms[i].textmess + '\n';
             }
              
          } else if (focus !== d) {
