@@ -14,7 +14,7 @@ var pack = d3.pack()
     .padding(2);
 
 
-update('./test.json');
+update('/test.json');
 
 
 setInterval(function(){ update('./new.json'); }, 3000);
