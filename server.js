@@ -213,6 +213,30 @@ app.post("/message", function (request, response) {
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
+
+app.get("/stylesheets/style.css", function (request, response) {
+  response.sendFile(__dirname + '/stylesheets/style.css');
+});
+
+app.get("/stylesheets/demo.css", function (request, response) {
+  response.sendFile(__dirname + '/stylesheets/demo.css');
+});
+
+app.get("/stylesheets/normalize.css", function (request, response) {
+  response.sendFile(__dirname + '/stylesheets/normalize.css');
+});
+
+app.get("/scripts/graph.js", function (request, response) {
+  response.sendFile(__dirname + '/scripts/graph.js');
+});
+
+app.get("/scripts/graph.js", function (request, response) {
+  response.sendFile(__dirname + '/scripts/graph.js');
+});
+
+app.get("/scripts/d3js.js", function (request, response) {
+  response.sendFile(__dirname + '/scripts/d3js.js');
+});
  
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
